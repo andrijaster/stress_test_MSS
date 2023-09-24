@@ -1,0 +1,36 @@
+{
+    "name": "Stress",
+    "build": {
+        "dockerfile": "../docker_file/Dockerfile"
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "donjayamanne.python-environment-manager",
+        "donjayamanne.python-extension-pack",
+        "KevinRose.vsc-python-indent",
+        "ms-vscode.cmake-tools",
+        "ms-python.isort",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "ms-toolsai.vscode-jupyter-slideshow",
+        "VisualStudioExptTeam.vscodeintellicode",
+    ],
+    "runArgs": [
+        "--memory=64g",
+        "--shm-size=128g"
+    ],
+    "mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/mnt,target=/workspace,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
+    ],
+    "containerEnv": {
+        "DISPLAY": ":0"
+    },
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [8089]
+}
+
